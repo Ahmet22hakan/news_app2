@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:news_app/blocs/ads_bloc.dart';
 
 import 'package:news_app/blocs/theme_bloc.dart';
 import 'package:news_app/models/article.dart';
@@ -9,19 +8,12 @@ import 'package:news_app/models/custom_color.dart';
 
 import 'package:news_app/services/app_service.dart';
 import 'package:news_app/utils/cached_image.dart';
-import 'package:news_app/widgets/banner_ad_admob.dart'; //admob
+
 //import 'package:news_app/widgets/banner_ad_fb.dart';      //fb ad
 
 import 'package:news_app/widgets/html_body.dart';
-import 'package:news_app/widgets/love_count.dart';
-import 'package:news_app/widgets/love_icon.dart';
-
-import 'package:news_app/widgets/views_count.dart';
-import 'package:share/share.dart';
 import 'package:provider/provider.dart';
-import 'dart:io';
 
-import '../utils/next_screen.dart';
 
 class ArticleDetails extends StatefulWidget {
   final Article? data;
@@ -218,7 +210,7 @@ class _ArticleDetailsState extends State<ArticleDetails> {
 
               // -- Banner ads --
 
-              context.watch<AdsBloc>().bannerAdEnabled == false ? Container() : BannerAdAdmob() //admob
+             // context.watch<AdsBloc>().bannerAdEnabled == false ? Container() : BannerAdAdmob() //admob
               //: BannerAdFb()    //fb
             ],
           ),

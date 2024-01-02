@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:news_app/models/category.dart';
-import 'package:news_app/pages/category_based_articles.dart';
-import 'package:news_app/utils/cached_image_with_dark.dart';
-
-import 'package:news_app/utils/next_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../blocs/astro_aylik_bloc.dart';
@@ -31,6 +26,7 @@ class _AstroState extends State<AstroPage> with AutomaticKeepAliveClientMixin {
     super.build(context);
 
     final cb = context.watch<AstroAylikBloc>();
+    /*
     Map<int, String> burclar = {
       0: "Koç",
       1: "Boğa",
@@ -45,7 +41,7 @@ class _AstroState extends State<AstroPage> with AutomaticKeepAliveClientMixin {
       10: "Kova",
       11: "Oğlak",
     };
-
+*/
     var gridView = Stack(
       children: [
         SingleChildScrollView(
@@ -298,50 +294,4 @@ class _AstroState extends State<AstroPage> with AutomaticKeepAliveClientMixin {
 
   @override
   bool get wantKeepAlive => true;
-}
-
-class _ItemList extends StatelessWidget {
-  final CategoryModel d;
-  const _ItemList({Key? key, required this.d}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), boxShadow: <BoxShadow>[
-            BoxShadow(blurRadius: 10, offset: Offset(0, 3), color: Theme.of(context).shadowColor)
-          ]),
-          child: Stack(
-            children: [
-              Hero(
-                tag: 'category${d.timestamp}',
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: CustomCacheImageWithDarkFilterBottom(imageUrl: d.thumbnailUrl, radius: 5.0),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  margin: EdgeInsets.only(left: 15, bottom: 15, right: 10),
-                  child: Text(
-                    d.name!,
-                    style:
-                        TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600, letterSpacing: -0.6),
-                  ),
-                ),
-              )
-            ],
-          )),
-      onTap: () {
-        nextScreen(
-            context,
-            CategoryBasedArticles(
-              category: d.name,
-              categoryImage: d.thumbnailUrl,
-              tag: 'category${d.timestamp}',
-            ));
-      },
-    );
-  }
 }

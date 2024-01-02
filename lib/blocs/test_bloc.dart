@@ -1,10 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
-import 'package:intl/intl.dart';
-
 import 'package:news_app/models/article.dart';
-import 'package:news_app/services/api_service.dart';
 import 'package:dio/dio.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -16,6 +12,7 @@ class TestBloc extends ChangeNotifier {
 
   bool _pageisLoading = false;
   bool get pageisLoading => _pageisLoading;
+  // ignore: non_constant_identifier_names
   bool browser_on = false;
 
   List<Widget> deneme = [];

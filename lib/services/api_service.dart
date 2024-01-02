@@ -1,12 +1,9 @@
-import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:news_app/models/WordpressModels/astrology_model.dart';
 import 'package:news_app/models/WordpressModels/post_models.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 
-import '../models/WordpressModels/search_model.dart';
 part 'api_service.g.dart';
 
 @RestApi(baseUrl: "https://bulten360.com/wp-json/")

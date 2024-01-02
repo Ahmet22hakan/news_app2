@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/models/WordpressModels/post_models.dart';
 import 'package:news_app/models/article.dart';
 import 'package:news_app/services/api_service.dart';
 

@@ -2,7 +2,6 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:news_app/blocs/category_tab1_bloc.dart';
 import 'package:news_app/cards/card1.dart';
 import 'package:news_app/cards/card2.dart';
 import 'package:news_app/utils/empty.dart';

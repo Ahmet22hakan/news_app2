@@ -1,4 +1,4 @@
-import 'package:firebase_analytics/firebase_analytics.dart';
+
 import 'package:flutter/material.dart';
 import 'package:news_app/blocs/astro_bloc.dart';
 import 'package:news_app/blocs/category_tab5_bloc.dart';
@@ -13,9 +13,7 @@ import 'package:news_app/blocs/recent_articles_bloc%20copy%209.dart';
 import 'package:news_app/blocs/test_bloc.dart';
 import 'package:news_app/pages/splash.dart';
 import 'package:provider/provider.dart';
-import 'blocs/ads_bloc.dart';
 import 'blocs/astro_aylik_bloc.dart';
-
 import 'blocs/category_tab1_bloc.dart';
 import 'blocs/category_tab2_bloc.dart';
 import 'blocs/category_tab3_bloc.dart';
@@ -23,20 +21,15 @@ import 'blocs/category_tab4_bloc.dart';
 import 'blocs/category_tab6_bloc.dart';
 import 'blocs/category_tab7_bloc.dart';
 import 'blocs/category_tab8_bloc.dart';
-
 import 'blocs/featured_bloc.dart';
-
 import 'blocs/popular_articles_bloc.dart';
 import 'blocs/recent_articles_bloc.dart';
-
 import 'blocs/search_bloc.dart';
 import 'blocs/tab_index_bloc.dart';
 import 'blocs/theme_bloc.dart';
-
 import 'models/theme_model.dart';
 
-final FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
-final FirebaseAnalyticsObserver firebaseObserver = FirebaseAnalyticsObserver(analytics: firebaseAnalytics);
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -56,7 +49,7 @@ class MyApp extends StatelessWidget {
               ChangeNotifierProvider<PopularBloc>(create: (context) => PopularBloc()),
               ChangeNotifierProvider<RecentBloc>(create: (context) => RecentBloc()),
              
-              ChangeNotifierProvider<AdsBloc>(create: (context) => AdsBloc()),
+           
         
               ChangeNotifierProvider<TabIndexBloc>(create: (context) => TabIndexBloc()),
     
@@ -85,8 +78,7 @@ class MyApp extends StatelessWidget {
                ChangeNotifierProvider<TestBloc>(create: (context) => TestBloc()),
 
             ],
-            child: MaterialApp(
-                navigatorObservers: [firebaseObserver],
+            child: MaterialApp(              
                 theme: ThemeModel().lightMode,
                 darkTheme: ThemeModel().darkMode,
                 themeMode: mode.darkTheme == true ? ThemeMode.dark : ThemeMode.light,

@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/blocs/recent_articles_bloc%20copy%203.dart';
-import 'package:news_app/blocs/recent_articles_bloc.dart';
-import 'package:news_app/cards/card2.dart';
-import 'package:news_app/cards/card4.dart';
 import 'package:news_app/cards/card5.dart';
 import 'package:provider/provider.dart';
 

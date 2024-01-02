@@ -1,7 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:news_app/utils/dialog.dart';
-import 'package:news_app/utils/snacbar.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   ForgotPasswordPage({Key? key}) : super(key: key);

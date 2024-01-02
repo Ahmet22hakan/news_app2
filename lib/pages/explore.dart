@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
 import 'package:news_app/blocs/featured_bloc.dart';
 import 'package:news_app/blocs/popular_articles_bloc.dart';
@@ -14,7 +13,6 @@ import 'package:news_app/widgets/drawer.dart';
 import 'package:news_app/widgets/tab_medium.dart';
 import 'package:provider/provider.dart';
 
-import 'notifications.dart';
 
 class Explore extends StatefulWidget {
   Explore({Key? key}) : super(key: key);

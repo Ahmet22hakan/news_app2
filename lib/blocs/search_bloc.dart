@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/models/WordpressModels/post_models.dart';
-import 'package:news_app/models/WordpressModels/search_model.dart';
 import 'package:news_app/models/article.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../services/api_service.dart';
 
 class SearchBloc with ChangeNotifier {

@@ -20,7 +20,6 @@ import 'package:news_app/widgets/recent_articles%20copy%206.dart';
 import 'package:news_app/widgets/recent_articles%20copy%207.dart';
 import 'package:news_app/widgets/recent_articles%20copy8.dart';
 import 'package:news_app/widgets/recent_articles.dart';
-import 'package:news_app/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../blocs/recent_articles_bloc copy 2.dart';

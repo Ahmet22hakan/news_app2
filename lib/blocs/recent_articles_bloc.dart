@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/config/config.dart';
 import 'package:news_app/models/article.dart';
 import 'package:news_app/services/api_service.dart';
 

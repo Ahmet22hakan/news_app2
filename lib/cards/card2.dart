@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:html/parser.dart';
-import 'package:html_unescape/html_unescape.dart';
 import 'package:news_app/models/article.dart';
 import 'package:news_app/utils/cached_image.dart';
 import 'package:news_app/utils/next_screen.dart';

@@ -25,16 +25,13 @@ class _MoreArticlesState extends State<MoreArticles> {
   late bool _isLoading;
 
   List<Article> _data = [];
-  late bool _descending;
-  late String _orderBy;
 
   @override
   void initState() {
     controller = new ScrollController()..addListener(_scrollListener);
     super.initState();
     _isLoading = true;
-    _orderBy = 'loves';
-    _descending = true;
+
 
   }
 
@@ -128,6 +125,7 @@ class _MoreArticlesState extends State<MoreArticles> {
                                 )
                               ],
                             )
+                          // ignore: dead_code
                           : Center(
                               child: SizedBox(width: 32.0, height: 32.0, child: new CupertinoActivityIndicator()),
                             ),

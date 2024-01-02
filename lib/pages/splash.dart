@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/config/config.dart';
 
-import 'package:provider/provider.dart';
 
 import '../utils/next_screen.dart';
 import 'home.dart';

@@ -10,10 +10,6 @@ import 'package:news_app/pages/wp%20pages/astro.dart';
 import 'package:news_app/pages/wp%20pages/test_page.dart';
 import 'package:provider/provider.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:news_app/cards/card4.dart';
-import 'package:news_app/cards/card5.dart';
-import 'package:news_app/utils/loading_cards.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -158,27 +154,6 @@ class _HomePageState extends State<HomePage> {
       ],
       onTap: (int i) => onTabTapped(i),
     );
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      onTap: (index) => onTabTapped(index),
-      currentIndex: _currentIndex,
-      selectedFontSize: 12,
-      unselectedFontSize: 12,
-      iconSize: 25,
-      selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
-      unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(iconList[0]), label: 'home'),
-        BottomNavigationBarItem(icon: Icon(iconList[1]), label: 'videos'),
-        BottomNavigationBarItem(
-            icon: Icon(
-              iconList[2],
-              size: 25,
-            ),
-            label: 'categories'),
-        BottomNavigationBarItem(icon: Icon(iconList[3]), label: 'profile')
-      ],
-    );
   }
 }
 
@@ -194,7 +169,7 @@ class VideoArticles extends StatefulWidget {
 class _VideoArticlesState extends State<VideoArticles> with AutomaticKeepAliveClientMixin {
   ScrollController? controller;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  String _orderBy = 'timestamp';
+
   YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: 'I0_06Z1k0hg',
     flags: YoutubePlayerFlags(

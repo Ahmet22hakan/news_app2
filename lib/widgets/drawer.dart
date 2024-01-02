@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+
 import 'package:line_icons/line_icons.dart';
 import 'package:news_app/blocs/astro_aylik_bloc.dart';
 import 'package:news_app/blocs/tab_index_bloc.dart';
 import 'package:news_app/blocs/test_bloc.dart';
 import 'package:news_app/blocs/theme_bloc.dart';
 
-import 'package:news_app/pages/wp%20pages/astro.dart';
-import 'package:news_app/pages/wp%20pages/game.dart';
-import 'package:news_app/utils/next_screen.dart';
-import 'package:news_app/widgets/language.dart';
 import 'package:provider/provider.dart';
 
 class DrawerMenu extends StatelessWidget {
@@ -31,18 +27,6 @@ class DrawerMenu extends StatelessWidget {
       "Kültür & Sanat"
     ];
 
-    final List icons = [
-      Feather.bookmark,
-      Feather.globe,
-      Feather.info,
-      Feather.lock,
-      Feather.mail,
-      Feather.facebook,
-      Feather.youtube,
-      Feather.twitter,
-      Feather.youtube,
-      Feather.twitter
-    ];
 
     final List<Widget> imageList = [
       Image.asset("assets/images/TestIcon.png"),

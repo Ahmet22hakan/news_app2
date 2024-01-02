@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/blocs/test_bloc.dart';
-import 'package:news_app/cards/card4.dart';
-import 'package:news_app/cards/card5.dart';
 import 'package:news_app/utils/loading_cards.dart';
 import 'package:provider/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -18,7 +16,8 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<TestBloc>().initi();
     });
   }

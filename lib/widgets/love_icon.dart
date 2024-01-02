@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:news_app/utils/icons.dart';
-import 'package:provider/provider.dart';
+
 
 class BuildLoveIcon extends StatelessWidget {
   final String collectionName;

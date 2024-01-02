@@ -143,6 +143,7 @@ class _CategoryBasedArticlesState extends State<CategoryBasedArticles> {
                                       )
                                     ],
                                   )
+                                // ignore: dead_code
                                 : Center(
                                     child: SizedBox(width: 32.0, height: 32.0, child: new CupertinoActivityIndicator()),
                                   ),

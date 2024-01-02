@@ -1,5 +1,4 @@
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/blocs/theme_bloc.dart';
@@ -71,7 +70,7 @@ class AstroAylikBloc extends ChangeNotifier {
       description: (context.read<ThemeBloc>().darkTheme ?? false)
           ? element.content.rendered
           : element.content.rendered.replaceAll("#ffffff", "#555555"),
-      thumbnailImagelUrl:"https://bulten360.com/wp-content/uploads/2023/12/${burclarKapak[tag]}123.jpg" ?? null,
+      thumbnailImagelUrl:"https://bulten360.com/wp-content/uploads/2023/12/${burclarKapak[tag]}123.jpg" ,
       readingTime: element.yoastHeadJson.twitterMisc.tahminiOkumaSresi,
       timestamp: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
       category: element.yoastHeadJson.schema.graph[0].articleSection?[0].replaceAll("&amp;", "") ?? "hata",

@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/blocs/test_bloc.dart';
 import 'package:news_app/models/article.dart';
 import 'package:news_app/utils/cached_image.dart';
-import 'package:news_app/utils/next_screen.dart';
 import 'package:news_app/widgets/video_icon.dart';
 import 'package:provider/provider.dart';
 

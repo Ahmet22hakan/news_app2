@@ -7,13 +7,8 @@ import 'package:news_app/blocs/astro_aylik_bloc.dart';
 import 'package:news_app/blocs/astro_bloc.dart';
 
 import 'package:news_app/cards/card1.dart';
-import 'package:news_app/models/category.dart';
-import 'package:news_app/pages/category_based_articles.dart';
-import 'package:news_app/pages/wp%20pages/astro.dart';
-import 'package:news_app/utils/cached_image_with_dark.dart';
 import 'package:news_app/utils/empty.dart';
 import 'package:news_app/utils/loading_cards.dart';
-import 'package:news_app/utils/next_screen.dart';
 import 'package:provider/provider.dart';
 
 class Categories extends StatefulWidget {
@@ -325,50 +320,4 @@ class _CategoriesState extends State<Categories> with AutomaticKeepAliveClientMi
 
   @override
   bool get wantKeepAlive => true;
-}
-
-class _ItemList extends StatelessWidget {
-  final CategoryModel d;
-  const _ItemList({Key? key, required this.d}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), boxShadow: <BoxShadow>[
-            BoxShadow(blurRadius: 10, offset: Offset(0, 3), color: Theme.of(context).shadowColor)
-          ]),
-          child: Stack(
-            children: [
-              Hero(
-                tag: 'category${d.timestamp}',
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: CustomCacheImageWithDarkFilterBottom(imageUrl: d.thumbnailUrl, radius: 5.0),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  margin: EdgeInsets.only(left: 15, bottom: 15, right: 10),
-                  child: Text(
-                    d.name!,
-                    style:
-                        TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600, letterSpacing: -0.6),
-                  ),
-                ),
-              )
-            ],
-          )),
-      onTap: () {
-        nextScreen(
-            context,
-            CategoryBasedArticles(
-              category: d.name,
-              categoryImage: d.thumbnailUrl,
-              tag: 'category${d.timestamp}',
-            ));
-      },
-    );
-  }
 }

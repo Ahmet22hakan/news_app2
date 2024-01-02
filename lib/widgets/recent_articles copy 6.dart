@@ -1,15 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/blocs/recent_articles_bloc%20copy%204.dart';
-import 'package:news_app/blocs/recent_articles_bloc%20copy%206.dart';
-import 'package:news_app/blocs/recent_articles_bloc.dart';
-import 'package:news_app/cards/card2.dart';
-import 'package:news_app/cards/card3.dart';
-import 'package:news_app/cards/card4.dart';
+
 import 'package:news_app/cards/card5.dart';
 import 'package:provider/provider.dart';
 
-import '../cards/card1.dart';
+
 
 class RecentArticles6 extends StatefulWidget {
   RecentArticles6({Key? key}) : super(key: key);

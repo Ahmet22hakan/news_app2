@@ -1,9 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:news_app/pages/search.dart';
 import 'package:news_app/utils/next_screen.dart';
-import 'package:provider/provider.dart';
+
 
 class SearchBar extends StatelessWidget {
   const SearchBar({Key? key}) : super(key: key);
