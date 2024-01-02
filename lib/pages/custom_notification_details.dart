@@ -13,7 +13,7 @@ class CustomNotificationDeatils extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String dateTime = Jiffy(notificationModel.date).fromNow();
+    final String dateTime = Jiffy.parse(notificationModel.date.toString()).fromNow(); // Jiffy(notificationModel.date).fromNow();
     return Scaffold(
       appBar: AppBar(
         title: Text('notification details'),

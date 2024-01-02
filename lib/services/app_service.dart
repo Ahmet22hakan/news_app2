@@ -9,12 +9,10 @@ import 'package:news_app/blocs/theme_bloc.dart';
 import 'package:news_app/config/config.dart';
 import 'package:reading_time/reading_time.dart';
 import 'package:url_launcher/url_launcher.dart' as urlLauncher;
-import 'package:news_app/utils/toast.dart';
 import 'package:provider/provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class AppServicek {
-
   Future<bool?> checkInternet() async {
     bool? internet;
     try {
@@ -29,20 +27,17 @@ class AppServicek {
     }
     return internet;
   }
-  
+
   Future openLink(context, String url) async {
     final uri = Uri.parse(url);
     if (await urlLauncher.canLaunchUrl(uri)) {
       urlLauncher.launchUrl(uri);
     } else {
-      openToast1(context, "Can't launch the url");
+     print("hata");
     }
   }
 
-  
-
   Future openEmailSupport(context) async {
-
     final Uri uri = Uri(
       scheme: 'mailto',
       path: Config().supportEmail,
@@ -52,66 +47,55 @@ class AppServicek {
     if (await urlLauncher.canLaunchUrl(uri)) {
       await urlLauncher.launchUrl(uri);
     } else {
-      openToast1(context, "Can't open the email app");
+     print("hata");
     }
   }
 
-
-
-
   Future openLinkWithCustomTab(BuildContext context, String url) async {
-    try{
+    try {
       await FlutterWebBrowser.openWebPage(
-      url: url,
-      customTabsOptions: CustomTabsOptions(
-        colorScheme: context.read<ThemeBloc>().darkTheme! ? CustomTabsColorScheme.dark : CustomTabsColorScheme.light,
-        //addDefaultShareMenuItem: true,
-        instantAppsEnabled: true,
-        showTitle: true,
-        urlBarHidingEnabled: true,
-      ),
-      safariVCOptions: SafariViewControllerOptions(
-        barCollapsingEnabled: true,
-        dismissButtonStyle: SafariViewControllerDismissButtonStyle.close,
-        modalPresentationCapturesStatusBarAppearance: true,
-      ),
-    );
-    }catch(e){
-      openToast1(context, 'Cant launch the url');
+        url: url,
+        customTabsOptions: CustomTabsOptions(
+          colorScheme: context.read<ThemeBloc>().darkTheme! ? CustomTabsColorScheme.dark : CustomTabsColorScheme.light,
+          //addDefaultShareMenuItem: true,
+          instantAppsEnabled: true,
+          showTitle: true,
+          urlBarHidingEnabled: true,
+        ),
+        safariVCOptions: SafariViewControllerOptions(
+          barCollapsingEnabled: true,
+          dismissButtonStyle: SafariViewControllerDismissButtonStyle.close,
+          modalPresentationCapturesStatusBarAppearance: true,
+        ),
+      );
+    } catch (e) {
+     print("hata");
       debugPrint(e.toString());
     }
   }
 
-
-
   Future launchAppReview(context) async {
-
     await LaunchReview.launch(
-        androidAppId:"",//dön
+        androidAppId: "", //dön
         iOSAppId: Config().iOSAppId,
         writeReview: false);
     if (Platform.isIOS) {
       if (Config().iOSAppId == '000000') {
-        openToast1(context, 'The iOS version is not available on the AppStore yet');
+        print("hata");
       }
     }
   }
 
-
-  static getYoutubeVideoIdFromUrl (String videoUrl){
+  static getYoutubeVideoIdFromUrl(String videoUrl) {
     return YoutubePlayer.convertUrlToId(videoUrl, trimWhitespaces: true);
   }
 
-  static getNormalText (String text){
+  static getNormalText(String text) {
     return HtmlUnescape().convert(parse(text).documentElement!.text);
   }
 
-  static getReadingTime (String text){
+  static getReadingTime(String text) {
     var reader = readingTime(getNormalText(text));
     return reader.msg;
   }
-
-  static CustomRenderMatcher videoMatcher() => (context) => context.tree.element?.localName == 'video';
-  static CustomRenderMatcher iframeMatcher() => (context) => context.tree.element?.localName == 'iframe';
-  static CustomRenderMatcher imageMatcher() => (context) => context.tree.element?.localName == 'img';
 }

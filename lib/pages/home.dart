@@ -34,11 +34,9 @@ class _HomePageState extends State<HomePage> {
     _pageController.animateToPage(index, curve: Curves.easeIn, duration: Duration(milliseconds: 250));
   }
 
-
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -66,7 +64,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     context.watch<AstroAylikBloc>();
-        context.watch<TestBloc>();
+    context.watch<TestBloc>();
 
     context.watch<ThemeBloc>();
     if (context.read<AstroAylikBloc>().gosterLanBeni) {
@@ -76,13 +74,12 @@ class _HomePageState extends State<HomePage> {
       context.read<AstroAylikBloc>().gosterLanBeni = false;
     }
 
-        if (context.read<TestBloc>().gosterLanBeni) {
+    if (context.read<TestBloc>().gosterLanBeni) {
       onTabTapped(3);
       _appBarKey.currentState?.animateTo(3);
 
       context.read<TestBloc>().gosterLanBeni = false;
     }
-
 
     return WillPopScope(
       onWillPop: () async => await _onWillPop(),
@@ -108,13 +105,15 @@ class _HomePageState extends State<HomePage> {
   Widget _bottomNavigationBar() {
     bool darkTheme = context.read<ThemeBloc>().darkTheme == false;
     return ConvexAppBar(
+      curveSize: 60,
+      curve: Curves.bounceIn,
       key: _appBarKey,
       initialActiveIndex: indexeMindexe,
       backgroundColor: darkTheme ? Colors.white : Colors.grey.shade900,
       style: TabStyle.fixed,
       activeColor: darkTheme ? Color(0xff161616) : Colors.white,
       color: Colors.grey,
-      top: -30,
+      top: -15,
       items: [
         TabItem(
           icon: Image.asset("assets/images/anasayfa.png"),
@@ -157,8 +156,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
-
 class VideoArticles extends StatefulWidget {
   VideoArticles({Key? key}) : super(key: key);
 
@@ -178,14 +175,9 @@ class _VideoArticlesState extends State<VideoArticles> with AutomaticKeepAliveCl
     ),
   );
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
-  
 
     return Scaffold(
       appBar: AppBar(
@@ -194,34 +186,32 @@ class _VideoArticlesState extends State<VideoArticles> with AutomaticKeepAliveCl
         title: Text('360 Video'),
         elevation: 0,
         actions: <Widget>[
-         IconButton(
+          IconButton(
             icon: Icon(
               Feather.rotate_cw,
               size: 22,
             ),
-            onPressed: () async {
-             
-            },
+            onPressed: () async {},
           )
         ],
       ),
       body: PageView(
-          scrollDirection: Axis.vertical,
-          children: [
-            VisibilityDetector(
-              onVisibilityChanged: (info) {
-                if (info.visibleFraction < 0.5) {
-                  _controller.pause();
-                }
-              },
-              key: Key("hellololoololololol"),
-              child: YoutubePlayer(
-                controller: _controller,
-                showVideoProgressIndicator: true,
-              ),
+        scrollDirection: Axis.vertical,
+        children: [
+          VisibilityDetector(
+            onVisibilityChanged: (info) {
+              if (info.visibleFraction < 0.5) {
+                _controller.pause();
+              }
+            },
+            key: Key("hellololoololololol"),
+            child: YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 

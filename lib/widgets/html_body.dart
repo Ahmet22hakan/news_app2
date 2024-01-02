@@ -35,16 +35,11 @@ class HtmlBodyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Html(
       data: '''$content''',
-      onLinkTap: (String? url, RenderContext context1, Map<String, String> attributes, _) {
-        AppServicek().openLinkWithCustomTab(context, url!);
-      },
-      onImageTap: (String? url, RenderContext context1, Map<String, String> attributes, _) {
-        nextScreen(context, FullScreenImage(imageUrl: url!));
-      },
+    
       style: {
         "body": Style(
           // margin: EdgeInsets.zero,
-          padding: EdgeInsets.zero,
+          padding: HtmlPaddings.zero,
 
           //Enable the below line and disble the upper line to disble full width image/video
 
@@ -59,29 +54,12 @@ class HtmlBodyWidget extends StatelessWidget {
               ? CustomColor().bodyTextColorLight
               : CustomColor().bodyTextColorDark,
         ),
-        "figure": Style(padding: EdgeInsets.zero),
+        "figure": Style(padding: HtmlPaddings.zero,),
 
         //Disable this line to disble full width image/video
         "p,h1,h2,h3,h4,h5,h6": Style(/*margin: EdgeInsets.all(20)*/ textAlign: TextAlign.start,fontSize:FontSize(14)),
       },
-      customRenders: {
-        AppServicek.videoMatcher(): CustomRender.widget(widget: (context1, buildChildren) {
-          String _videoSource = context1.tree.attributes['src'].toString();
-          print(_videoSource.toString());
-          if (isVideoEnabled == false) return Container();
-          return VideoPlayerWidget(videoUrl: _videoSource, videoType: 'network');
-        }),
-        AppServicek.iframeMatcher(): CustomRender.widget(widget: (context1, children) {
-          final String _videoSource = context1.tree.element!.attributes['src'].toString();
-          if (isIframeVideoEnabled == false) return Container();
-          if (_videoSource.contains('youtube')) {
-            return VideoPlayerWidget(videoUrl: _videoSource, videoType: 'youtube');
-          } else if (_videoSource.contains('vimeo')) {
-            return VideoPlayerWidget(videoUrl: _videoSource, videoType: 'vimeo');
-          }
-          return Container();
-        })
-      },
+     
     );
   }
 }

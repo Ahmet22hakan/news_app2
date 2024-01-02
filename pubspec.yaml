@@ -3,10 +3,10 @@ description: A new Flutter application.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 5.0.4+24
+version: 1.0.4+24
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
   flutter:
@@ -14,39 +14,38 @@ dependencies:
   easy_refresh: ^3.3.3+1
   flutter_web_browser: ^0.17.1
   onesignal_flutter: ^5.0.4
-  visibility_detector: ^0.3.3
+  visibility_detector: ^0.4.0+2
   webview_flutter: ^4.2.2
-  analyzer: ^5.2.0
+  analyzer: ^6.2.0
   retrofit: ^4.0.3
   youtube_player_flutter: ^8.1.2
   cached_network_image: ^3.2.3
   cupertino_icons: ^1.0.5
-  dots_indicator: ^2.0.0
-  google_fonts: ^3.0.1
+  dots_indicator: ^3.0.0
+  google_fonts: ^6.1.0
   html: ^0.15.0
   html_unescape: ^2.0.0
-  image_picker: ^0.8.4+4
-  intl: ^0.17.0
+  image_picker: ^1.0.5
+  intl: ^0.19.0
   introduction_screen: ^3.0.0
   launch_review: ^3.0.1
   line_icons: ^2.0.1
   convex_bottom_bar: ^3.2.0
-  lottie: ^1.4.3
+  lottie: ^2.7.0
   package_info: ^2.0.2
   path_provider: ^2.0.11
   provider: ^6.0.3
   share: ^2.0.4
   shared_preferences: ^2.0.11
   skeleton_text: ^3.0.0
-  fluttertoast: ^8.0.9
   url_launcher: ^6.1.5
   rounded_loading_button: ^2.0.9
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  jiffy: ^5.0.0
+  jiffy: ^6.2.2
   loading_indicator: ^3.1.0
   reading_time: ^2.0.0
-  pod_player: ^0.1.0
+  pod_player: ^0.2.1
     # facebook_audience_network: ^1.0.1
   flutter_icons:
     git:
@@ -63,10 +62,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_launcher_icons: "^0.10.0"
+  flutter_launcher_icons: ^0.13.1
   change_app_package_name: ^1.1.0
-  retrofit_generator: '6.0.0'
-  build_runner: '2.3.0' 
+  retrofit_generator: ^8.0.6
+  build_runner: ^2.4.7 
   json_serializable: ^6.6.1
 
 

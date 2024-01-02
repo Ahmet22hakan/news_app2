@@ -55,7 +55,7 @@ class _FeaturedState extends State<Featured> {
         Center(
           child: DotsIndicator(
             dotsCount: fb.data.isEmpty ? 5 : fb.data.length,
-            position: listIndex.toDouble(),
+            position: listIndex,
             decorator: DotsDecorator(
               color: Colors.black26,
               activeColor: Theme.of(context).primaryColorDark,
