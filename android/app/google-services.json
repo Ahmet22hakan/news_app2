@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "665322577251",
+    "project_id": "test-17e8e",
+    "storage_bucket": "test-17e8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665322577251:android:1dc2cd5354cd75d62a4756",
+        "android_client_info": {
+          "package_name": "com.bulten360.haber"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmQJ01rGwaQnHC7r1e4s5ljpHCGAjwRxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665322577251:android:bc95bb37fae3d8b12a4756",
+        "android_client_info": {
+          "package_name": "com.test.deneme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmQJ01rGwaQnHC7r1e4s5ljpHCGAjwRxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

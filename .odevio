@@ -1,0 +1,7 @@
+build-type=configuration
+flutter=3.3.0
+app-version=5.0.4
+build-number=24
+mode=release
+target=lib/main.dart
+tunnel-host=localhost
