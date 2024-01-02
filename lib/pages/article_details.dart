@@ -11,7 +11,7 @@ import 'package:news_app/services/app_service.dart';
 import 'package:news_app/utils/cached_image.dart';
 import 'package:news_app/widgets/banner_ad_admob.dart'; //admob
 //import 'package:news_app/widgets/banner_ad_fb.dart';      //fb ad
-import 'package:news_app/widgets/bookmark_icon.dart';
+
 import 'package:news_app/widgets/html_body.dart';
 import 'package:news_app/widgets/love_count.dart';
 import 'package:news_app/widgets/love_icon.dart';

@@ -5,7 +5,7 @@ import 'package:news_app/blocs/astro_aylik_bloc.dart';
 import 'package:news_app/blocs/tab_index_bloc.dart';
 import 'package:news_app/blocs/test_bloc.dart';
 import 'package:news_app/blocs/theme_bloc.dart';
-import 'package:news_app/pages/bookmarks.dart';
+
 import 'package:news_app/pages/wp%20pages/astro.dart';
 import 'package:news_app/pages/wp%20pages/game.dart';
 import 'package:news_app/utils/next_screen.dart';
