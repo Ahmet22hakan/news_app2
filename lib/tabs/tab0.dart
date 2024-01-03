@@ -52,7 +52,7 @@ class _Tab0State extends State<Tab0> {
     return EasyRefresh(
       footer: MaterialFooter(),
       onLoad: () {
-       context.read<PopularBloc>().getMoreData();
+        context.read<PopularBloc>().getMoreData();
       },
       child: SingleChildScrollView(
         key: PageStorageKey('key0'),
@@ -70,7 +70,7 @@ class _Tab0State extends State<Tab0> {
             RecentArticles5(),
             RecentArticles7(),
             RecentArticles6(),
-    
+
             RecentArticles8(),
             PopularArticles(),
           ],

@@ -42,6 +42,7 @@ class DrawerMenu extends StatelessWidget {
     ];
 
     return Drawer(
+      backgroundColor: Colors.white,
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -69,6 +70,7 @@ class DrawerMenu extends StatelessWidget {
             ),
             Container(
               child: ListView.separated(
+                
                 physics: NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.only(bottom: 30),
                 itemCount: titles.length + 1,

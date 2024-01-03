@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/config/config.dart';
 
-
 import '../utils/next_screen.dart';
 import 'home.dart';
 
@@ -19,11 +18,8 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   gotoHomePage() {
-   
     nextScreenReplace(context, HomePage());
   }
-
-
 
   @override
   void initState() {
@@ -34,13 +30,12 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
-        body: Center(
-            child: Image(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        body: Image(
           image: AssetImage(Config().splashIcon),
           height: 120,
           width: 120,
           fit: BoxFit.contain,
-        )));
+        ));
   }
 }
