@@ -49,45 +49,31 @@ class Tab0 extends StatefulWidget {
 class _Tab0State extends State<Tab0> {
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: () async {
-        context.read<FeaturedBloc>().onRefresh();
-        context.read<PopularBloc>().onRefresh();
-        context.read<RecentBloc>().onRefresh(mounted);
-        context.read<RecentBloc2>().onRefresh();
-        context.read<RecentBloc3>().onRefresh(mounted);
-        context.read<RecentBloc4>().onRefresh(mounted);
-        context.read<RecentBloc5>().onRefresh(mounted);
-        context.read<RecentBloc6>().onRefresh(mounted);
-        context.read<RecentBloc7>().onRefresh(mounted);
-        context.read<RecentBloc8>().onRefresh(mounted);
+    return EasyRefresh(
+      footer: MaterialFooter(),
+      onLoad: () {
+       context.read<PopularBloc>().getMoreData();
       },
-      child: EasyRefresh(
-        footer: MaterialFooter(),
-        onLoad: () {
-         context.read<PopularBloc>().getMoreData();
-        },
-        child: SingleChildScrollView(
-          key: PageStorageKey('key0'),
-          padding: EdgeInsets.all(0),
-          physics: AlwaysScrollableScrollPhysics(),
-          child: Column(
-            children: [
-              // SearchBar(),
-              Featured(),
-              RecentArticles(),
-              RecentArticles2(),
-              Astro(),
-              RecentArticles3(),
-              RecentArticles4(),
-              RecentArticles5(),
-              RecentArticles7(),
-              RecentArticles6(),
-      
-              RecentArticles8(),
-              PopularArticles(),
-            ],
-          ),
+      child: SingleChildScrollView(
+        key: PageStorageKey('key0'),
+        padding: EdgeInsets.all(0),
+        physics: AlwaysScrollableScrollPhysics(),
+        child: Column(
+          children: [
+            // SearchBar(),
+            Featured(),
+            RecentArticles(),
+            RecentArticles2(),
+            Astro(),
+            RecentArticles3(),
+            RecentArticles4(),
+            RecentArticles5(),
+            RecentArticles7(),
+            RecentArticles6(),
+    
+            RecentArticles8(),
+            PopularArticles(),
+          ],
         ),
       ),
     );

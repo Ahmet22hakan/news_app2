@@ -8,6 +8,7 @@ import 'package:news_app/pages/categories%20copy.dart';
 import 'package:news_app/pages/explore.dart';
 import 'package:news_app/pages/wp%20pages/astro.dart';
 import 'package:news_app/pages/wp%20pages/test_page.dart';
+import 'package:news_app/services/hive_service.dart';
 import 'package:provider/provider.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
     _pageController.dispose();
-    //HiveService().closeBoxes();
+    HiveService().closeBoxes();
     super.dispose();
   }
 
