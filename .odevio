@@ -1,6 +1,8 @@
+app-key=M41D
 build-type=configuration
-flutter=3.3.0
-app-version=5.0.4
+flutter=3.16.5
+minimal-ios-version=12.0
+app-version=1.0.4
 build-number=24
 mode=release
 target=lib/main.dart
