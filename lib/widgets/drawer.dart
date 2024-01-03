@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:line_icons/line_icons.dart';
 import 'package:news_app/blocs/astro_aylik_bloc.dart';
 import 'package:news_app/blocs/tab_index_bloc.dart';
 import 'package:news_app/blocs/test_bloc.dart';
 import 'package:news_app/blocs/theme_bloc.dart';
-
+import 'package:news_app/models/custom_color.dart';
 import 'package:provider/provider.dart';
 
 class DrawerMenu extends StatelessWidget {
@@ -27,7 +26,6 @@ class DrawerMenu extends StatelessWidget {
       "Kültür & Sanat"
     ];
 
-
     final List<Widget> imageList = [
       Image.asset("assets/images/TestIcon.png"),
       Image.asset("assets/images/astroIcon.png"),
@@ -42,7 +40,9 @@ class DrawerMenu extends StatelessWidget {
     ];
 
     return Drawer(
-      backgroundColor: Colors.white,
+      backgroundColor: context.watch<ThemeBloc>().darkTheme == false
+          ? CustomColor().drawerHeaderColorLight
+          : CustomColor().drawerHeaderColorDark,
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -50,7 +50,9 @@ class DrawerMenu extends StatelessWidget {
           children: <Widget>[
             Container(
               alignment: Alignment.center,
-              //color: context.watch<ThemeBloc>().darkTheme == false ? CustomColor().drawerHeaderColorLight : CustomColor().drawerHeaderColorDark,
+              color: context.watch<ThemeBloc>().darkTheme == false
+                  ? CustomColor().drawerHeaderColorLight
+                  : CustomColor().drawerHeaderColorDark,
               padding: EdgeInsets.only(left: 10, right: 10, top: 40, bottom: 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +72,6 @@ class DrawerMenu extends StatelessWidget {
             ),
             Container(
               child: ListView.separated(
-                
                 physics: NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.only(bottom: 30),
                 itemCount: titles.length + 1,
@@ -109,7 +110,7 @@ class DrawerMenu extends StatelessWidget {
                     onTap: () async {
                       Navigator.pop(context);
                       if (index == 1) {
-                      context.read<TestBloc>().testeGit();
+                        context.read<TestBloc>().testeGit();
                       } else if (index == 2) {
                         context.read<AstroAylikBloc>().astroyaGit();
                       } else if (index == 3) {
