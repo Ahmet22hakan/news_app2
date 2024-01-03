@@ -11,6 +11,7 @@ class TabIndexBloc extends ChangeNotifier {
 
 
   setTabIndex (newIndex){
+    
     _tabIndex = newIndex;
     notifyListeners();
   }

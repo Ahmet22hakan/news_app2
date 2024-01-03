@@ -81,8 +81,11 @@ class _HomePageState extends State<HomePage> {
       context.read<TestBloc>().gosterLanBeni = false;
     }
 
-    return WillPopScope(
-      onWillPop: () async => await _onWillPop(),
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        _onWillPop();
+      },
       child: Scaffold(
         bottomNavigationBar: _bottomNavigationBar(),
         body: PageView(
@@ -105,7 +108,6 @@ class _HomePageState extends State<HomePage> {
   Widget _bottomNavigationBar() {
     bool darkTheme = context.read<ThemeBloc>().darkTheme == false;
     return ConvexAppBar(
-      curveSize: 60,
       curve: Curves.bounceIn,
       key: _appBarKey,
       initialActiveIndex: indexeMindexe,
@@ -113,7 +115,7 @@ class _HomePageState extends State<HomePage> {
       style: TabStyle.fixed,
       activeColor: darkTheme ? Color(0xff161616) : Colors.white,
       color: Colors.grey,
-      top: -15,
+      top: -20 ,
       items: [
         TabItem(
           icon: Image.asset("assets/images/anasayfa.png"),

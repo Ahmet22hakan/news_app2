@@ -13,7 +13,6 @@ import 'package:news_app/widgets/drawer.dart';
 import 'package:news_app/widgets/tab_medium.dart';
 import 'package:provider/provider.dart';
 
-
 class Explore extends StatefulWidget {
   Explore({Key? key}) : super(key: key);
 
@@ -118,9 +117,12 @@ class _ExploreState extends State<Explore> with AutomaticKeepAliveClientMixin, T
               )
             ],
             pinned: true,
-            floating: true,
+            //floating: true,
             forceElevated: innerBoxIsScrolled,
             bottom: TabBar(
+              tabAlignment: TabAlignment.start,
+              padding: EdgeInsets.all(0),
+
               labelStyle: TextStyle(fontFamily: 'Manrope', fontSize: 15, fontWeight: FontWeight.w600),
               controller: context.read<TabIndexBloc>().tabController!,
               indicatorSize: TabBarIndicatorSize.label,
