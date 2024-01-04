@@ -24,7 +24,7 @@ class SearchBloc with ChangeNotifier {
     currentPage = 1;
     data.clear();
 
-    List<WpArtircle> asd = await api.getArticlesBySearching(_textFieldCtrl.text, 5, currentPage);
+    List<WpArtircle> asd = await api.getArticlesBySearching(_textFieldCtrl.text, 10, currentPage);
     notifyListeners();
     print("sayısı bu asd:${asd.length}");
 
@@ -50,7 +50,7 @@ class SearchBloc with ChangeNotifier {
     loading = true;
     notifyListeners();
     currentPage += 1;
-    List<WpArtircle> asd = await api.getArticlesBySearching(_textFieldCtrl.text, 5, currentPage);
+    List<WpArtircle> asd = await api.getArticlesBySearching(_textFieldCtrl.text, 10, currentPage);
 
     print("sayısı bu asd:${asd.length}");
 

@@ -34,11 +34,13 @@ class _SplashPageState extends State<SplashPage> {
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          child: Image(
-            image: AssetImage(Config().splashIcon),
-            height: 120,
-            width: 120,
-            fit: BoxFit.contain,
+          child: Center(
+            child: Image(
+              image: AssetImage(Config().splashIcon),
+              height: 120,
+              width: 120,
+              fit: BoxFit.contain,
+            ),
           ),
         ));
   }

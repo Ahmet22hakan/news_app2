@@ -17,7 +17,7 @@ class RecentBloc9 extends ChangeNotifier {
   void getData() async {
     _data.clear();
     try {
-      var asd = await api.getLastArticles(5, 1);
+      var asd = await api.getLastArticles(10, 1);
       if (asd.isNotEmpty) {
         print("\n\n\nBaşladı\n\n\n");
         asd.forEach((element) {

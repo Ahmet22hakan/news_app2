@@ -19,7 +19,7 @@ class RecentBloc4 extends ChangeNotifier {
 
     _isLoading = true;
 
-    var asdk = await api.getArticlesByCategoriId(21, 5, 1);
+    var asdk = await api.getArticlesByCategoriId(21, 10, 1);
     asdk.forEach((element) {
       _data.add(Article(
         title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),

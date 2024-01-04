@@ -23,7 +23,7 @@ class CategoryTab7Bloc extends ChangeNotifier {
     currentPage = 1;
     _isLoading = true;
 
-    var asdk = await api.getArticlesByCategoriId(19, 5, currentPage);
+    var asdk = await api.getArticlesByCategoriId(19, 10, currentPage);
     asdk.forEach((element) {
       _data.add(Article(
         title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
@@ -48,7 +48,7 @@ class CategoryTab7Bloc extends ChangeNotifier {
       notifyListeners();
       currentPage += 1;
 
-      var asdkl = await api.getArticlesByCategoriId(19, 5, currentPage);
+      var asdkl = await api.getArticlesByCategoriId(19, 10, currentPage);
       print("gelen boyutu");
       print(asdkl.length);
       print(currentPage);

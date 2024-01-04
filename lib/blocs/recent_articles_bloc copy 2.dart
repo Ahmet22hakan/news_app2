@@ -18,10 +18,10 @@ class RecentBloc2 extends ChangeNotifier {
     _data.clear();
     _isLoading = true;
 
-    var asdk = await api.getArticlesByCategoriId(27, 5, 1);
+    var asdk = await api.getArticlesByCategoriId(27, 10, 1);
     asdk.forEach((element) {
       _data.add(Article(
-        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
+        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
         date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
         description: element.content.rendered,
         thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,

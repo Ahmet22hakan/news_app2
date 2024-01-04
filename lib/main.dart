@@ -6,11 +6,10 @@ import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- 
-   OneSignal.initialize("9b805b58-8e7e-47e6-89b8-6e10259a5107");
-   OneSignal.Notifications.requestPermission(true);
+  OneSignal.Debug.setLogLevel(OSLogLevel.error);
+  OneSignal.initialize("9b805b58-8e7e-47e6-89b8-6e10259a5107");
+  OneSignal.Notifications.requestPermission(true);
 
- 
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent, statusBarIconBrightness: Brightness.dark));
 

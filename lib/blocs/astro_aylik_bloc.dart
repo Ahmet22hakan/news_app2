@@ -61,7 +61,7 @@ class AstroAylikBloc extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     print("deneyum");
-    var asdk = await api.getArticlesByCategoriTag(burclar[tag] ?? 5465, 5, currentPage);
+    var asdk = await api.getArticlesByCategoriTag(burclar[tag] ?? 5465, 10, currentPage);
     var element = asdk[0];
     _data.add(Article(
       title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),

@@ -24,7 +24,7 @@ class AstroBloc extends ChangeNotifier {
     _data.clear();
     _isLoading = true;
     notifyListeners();
-    var asdk = await api.getArticlesByCategoriTag(tag, 5, currentPage);
+    var asdk = await api.getArticlesByCategoriTag(tag, 10, currentPage);
     asdk.forEach((element) {
       _data.add(Article(
         title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
@@ -48,7 +48,7 @@ class AstroBloc extends ChangeNotifier {
       _isLoading = true;
       currentPage += 1;
       notifyListeners();
-      var asdkl = await api.getArticlesByCategoriTag(tag, 5, currentPage);
+      var asdkl = await api.getArticlesByCategoriTag(tag, 10, currentPage);
       print("gelen boyutu");
       print(asdkl.length);
       print(currentPage);
