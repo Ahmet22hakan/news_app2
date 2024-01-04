@@ -8,8 +8,6 @@ class RecentBloc2 extends ChangeNotifier {
   List<Article> _data = [];
   List<Article> get data => _data;
 
-
-
   bool _isLoading = true;
   bool get isLoading => _isLoading;
   RecentBloc2() {
@@ -23,7 +21,7 @@ class RecentBloc2 extends ChangeNotifier {
     var asdk = await api.getArticlesByCategoriId(27, 5, 1);
     asdk.forEach((element) {
       _data.add(Article(
-        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
         date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
         description: element.content.rendered,
         thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,

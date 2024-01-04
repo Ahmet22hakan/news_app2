@@ -31,11 +31,15 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: Image(
-          image: AssetImage(Config().splashIcon),
-          height: 120,
-          width: 120,
-          fit: BoxFit.contain,
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          child: Image(
+            image: AssetImage(Config().splashIcon),
+            height: 120,
+            width: 120,
+            fit: BoxFit.contain,
+          ),
         ));
   }
 }

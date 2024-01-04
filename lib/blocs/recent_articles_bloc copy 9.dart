@@ -22,7 +22,10 @@ class RecentBloc9 extends ChangeNotifier {
         print("\n\n\nBaşladı\n\n\n");
         asd.forEach((element) {
           _data.add(Article(
-            title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("amp;", ""),
+            title: element.yoastHeadJson.title
+                .replaceAll(" - Bulten360.com", "")
+                .replaceAll("&amp;", "&")
+                .replaceAll("amp;", ""),
             date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
             description: element.content.rendered,
             thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,
@@ -73,5 +76,4 @@ class RecentBloc9 extends ChangeNotifier {
   //   getData();
   //   notifyListeners();
   // }
-
 }

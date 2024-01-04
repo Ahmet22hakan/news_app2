@@ -8,8 +8,6 @@ class CategoryTab1Bloc extends ChangeNotifier {
   List<Article> _data = [];
   List<Article> get data => _data;
 
-
-
   Article? _lastVisible;
   Article? get lastVisible => _lastVisible;
 
@@ -28,13 +26,13 @@ class CategoryTab1Bloc extends ChangeNotifier {
     var asdk = await api.getArticlesByCategoriId(22, 5, currentPage);
     asdk.forEach((element) {
       _data.add(Article(
-        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
         date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
         description: element.content.rendered,
         thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,
         readingTime: element.yoastHeadJson.twitterMisc.tahminiOkumaSresi,
         timestamp: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
-        category: element.yoastHeadJson.schema.graph[0].articleSection?[0].replaceAll("&amp;", "") ?? "hata",
+        category: element.yoastHeadJson.schema.graph[0].articleSection?[0].replaceAll("&amp;", "&") ?? "hata",
       ));
     });
     print(_data.length);
@@ -57,7 +55,7 @@ class CategoryTab1Bloc extends ChangeNotifier {
 
       asdkl.forEach((element) {
         _data.add(Article(
-          title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+          title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
           date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
           description: element.content.rendered,
           thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,

@@ -4,7 +4,6 @@ import 'package:news_app/models/article.dart';
 import 'package:news_app/services/api_service.dart';
 
 class FeaturedBloc with ChangeNotifier {
-
   List<Article> _data = [];
   List<Article> get data => _data;
 
@@ -22,7 +21,10 @@ class FeaturedBloc with ChangeNotifier {
         print("\n\n\nBaşladı\n\n\n");
         asd.forEach((element) {
           _data.add(Article(
-            title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("amp;", ""),
+            title: element.yoastHeadJson.title
+                .replaceAll(" - Bulten360.com", "")
+                .replaceAll("&amp;", "&")
+                .replaceAll("amp;", ""),
             date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
             description: element.content.rendered,
             thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,

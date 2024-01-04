@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/blocs/theme_bloc.dart';
@@ -37,24 +36,24 @@ class AstroAylikBloc extends ChangeNotifier {
     11: 5475,
   };
 
-    Map<int, String> burclarKapak = {
-    0: "koc",//koc
-    1: "boga",//boga
-    2: "ikizler",//ikizler
-    3: "yengec",//yengec
+  Map<int, String> burclarKapak = {
+    0: "koc", //koc
+    1: "boga", //boga
+    2: "ikizler", //ikizler
+    3: "yengec", //yengec
     4: "aslan", // Aslan,
-    5: "terazi",//terazai
+    5: "terazi", //terazai
     6: "akrep", //Akrep,
-    7: "yay",//yay
+    7: "yay", //yay
     8: "balik", //Balik,
     9: "basak", //Basak,
-    10: "kova",//kova
-    11: "oglak",//oglak
+    10: "kova", //kova
+    11: "oglak", //oglak
   };
 
   void astroyaGit() {
     gosterLanBeni = true;
-    notifyListeners();  
+    notifyListeners();
   }
 
   Future<Null> getData(int tag, BuildContext context) async {
@@ -65,12 +64,12 @@ class AstroAylikBloc extends ChangeNotifier {
     var asdk = await api.getArticlesByCategoriTag(burclar[tag] ?? 5465, 5, currentPage);
     var element = asdk[0];
     _data.add(Article(
-      title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+      title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
       date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
       description: (context.read<ThemeBloc>().darkTheme ?? false)
           ? element.content.rendered
           : element.content.rendered.replaceAll("#ffffff", "#555555"),
-      thumbnailImagelUrl:"https://bulten360.com/wp-content/uploads/2023/12/${burclarKapak[tag]}123.jpg" ,
+      thumbnailImagelUrl: "https://bulten360.com/wp-content/uploads/2023/12/${burclarKapak[tag]}123.jpg",
       readingTime: element.yoastHeadJson.twitterMisc.tahminiOkumaSresi,
       timestamp: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
       category: element.yoastHeadJson.schema.graph[0].articleSection?[0].replaceAll("&amp;", "") ?? "hata",

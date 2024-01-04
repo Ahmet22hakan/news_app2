@@ -19,7 +19,7 @@ class RecentBloc extends ChangeNotifier {
     var asdk = await api.getArticlesByCategoriId(22, 5, 1);
     asdk.forEach((element) {
       _data.add(Article(
-        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
         date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
         description: element.content.rendered,
         thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,
@@ -44,7 +44,7 @@ class RecentBloc extends ChangeNotifier {
     _isLoading = true;
 
     _data.clear();
-   
+
     getData(mounted, "elma");
     notifyListeners();
   }
@@ -69,5 +69,4 @@ class RecentBloc extends ChangeNotifier {
   //   getData();
   //   notifyListeners();
   // }
-
 }

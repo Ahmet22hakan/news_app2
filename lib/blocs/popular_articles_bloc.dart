@@ -11,8 +11,6 @@ class PopularBloc extends ChangeNotifier {
   int currentPage = 1;
   bool isLoading = false;
 
-
-
   Future<Null> getData() async {
     _data.clear();
     currentPage = 1;
@@ -22,7 +20,7 @@ class PopularBloc extends ChangeNotifier {
     var asdk = await api.getLastArticles(10, currentPage);
     asdk.forEach((element) {
       _data.add(Article(
-        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
         date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
         description: element.content.rendered,
         thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,
@@ -45,7 +43,7 @@ class PopularBloc extends ChangeNotifier {
     var asdk = await api.getLastArticles(10, currentPage);
     asdk.forEach((element) {
       _data.add(Article(
-        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
         date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
         description: element.content.rendered,
         thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,

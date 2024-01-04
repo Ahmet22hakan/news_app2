@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -8,7 +7,6 @@ import 'package:news_app/services/api_service.dart';
 class CategoryTab4Bloc extends ChangeNotifier {
   List<Article> _data = [];
   List<Article> get data => _data;
-
 
   Article? _lastVisible;
   Article? get lastVisible => _lastVisible;
@@ -28,7 +26,7 @@ class CategoryTab4Bloc extends ChangeNotifier {
     var asdk = await api.getArticlesByCategoriId(21, 5, currentPage);
     asdk.forEach((element) {
       _data.add(Article(
-        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+        title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
         date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
         description: element.content.rendered,
         thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,
@@ -57,7 +55,7 @@ class CategoryTab4Bloc extends ChangeNotifier {
 
       asdkl.forEach((element) {
         _data.add(Article(
-          title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", ""),
+          title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),
           date: DateFormat("dd MMMM yy", 'tr_TR').format(element.yoastHeadJson.articlePublishedTime),
           description: element.content.rendered,
           thumbnailImagelUrl: element.yoastHeadJson.ogImage?[0].url ?? null,
