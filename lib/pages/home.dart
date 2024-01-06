@@ -49,14 +49,22 @@ class _HomePageState extends State<HomePage> {
 
   Future _onWillPop() async {
     if (_currentIndex == 3) {
-      context.read<TestBloc>().closeBrowser();
+      if (context.read<TestBloc>().browser_on) {
+        context.read<TestBloc>().closeBrowser();
+      } else {
+        _appBarKey.currentState?.animateTo(0);
+         _pageController.animateToPage(0, duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+      }
+
       return false;
     }
     if (_currentIndex != 0) {
       setState(() => _currentIndex = 0);
       _pageController.animateToPage(0, duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+      _appBarKey.currentState?.animateTo(0);
+      
     } else {
-      await SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop', true);
+     // await SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop', true);
     }
 
     return false;
@@ -82,10 +90,9 @@ class _HomePageState extends State<HomePage> {
       context.read<TestBloc>().gosterLanBeni = false;
     }
 
-    return PopScope(
-      canPop: false,
-      onPopInvoked: (didPop) {
-        _onWillPop();
+    return WillPopScope(
+      onWillPop: () async {
+        return await _onWillPop();
       },
       child: Scaffold(
         bottomNavigationBar: _bottomNavigationBar(),
@@ -116,7 +123,7 @@ class _HomePageState extends State<HomePage> {
       style: TabStyle.fixed,
       activeColor: darkTheme ? Color(0xff161616) : Colors.white,
       color: Colors.grey,
-      top: -20 ,
+      top: -20,
       items: [
         TabItem(
           icon: Image.asset("assets/images/anasayfa.png"),
@@ -173,7 +180,8 @@ class _VideoArticlesState extends State<VideoArticles> with AutomaticKeepAliveCl
   YoutubePlayerController _controller = YoutubePlayerController(
     initialVideoId: 'I0_06Z1k0hg',
     flags: YoutubePlayerFlags(
-      autoPlay: false,
+      controlsVisibleAtStart: false,     
+      loop: true,
       mute: false,
     ),
   );
@@ -188,25 +196,17 @@ class _VideoArticlesState extends State<VideoArticles> with AutomaticKeepAliveCl
         automaticallyImplyLeading: false,
         title: Text('360 Video'),
         elevation: 0,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Feather.rotate_cw,
-              size: 22,
-            ),
-            onPressed: () async {},
-          )
-        ],
       ),
       body: PageView(
         scrollDirection: Axis.vertical,
         children: [
           VisibilityDetector(
             onVisibilityChanged: (info) {
-              if (info.visibleFraction < 0.5) {
-                _controller.pause();
-              }
-            },
+              if (info.visibleFraction < 0.5) {               
+                    _controller.pause();                  
+                }
+              }, 
+            
             key: Key("hellololoololololol"),
             child: YoutubePlayer(
               controller: _controller,

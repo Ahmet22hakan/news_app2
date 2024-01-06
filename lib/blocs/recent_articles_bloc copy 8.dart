@@ -10,16 +10,13 @@ class RecentBloc8 extends ChangeNotifier {
 
   bool _isLoading = true;
   bool get isLoading => _isLoading;
-  RecentBloc8() {
-    getData();
-  }
 
   Future<Null> getData() async {
     _data.clear();
 
     _isLoading = true;
 
-    var asdk = await api.getArticlesByCategoriId(20, 10, 1);
+    var asdk = await api.getArticlesByCategoriId(20, 5, 1);
     asdk.forEach((element) {
       _data.add(Article(
         title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),

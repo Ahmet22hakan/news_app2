@@ -17,7 +17,7 @@ class PopularBloc extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
 
-    var asdk = await api.getLastArticles(10, currentPage);
+    var asdk = await api.getLastArticles(5, currentPage);
     asdk.forEach((element) {
       _data.add(Article(
         title: element.yoastHeadJson.title.replaceAll(" - Bulten360.com", "").replaceAll("&amp;", "&"),

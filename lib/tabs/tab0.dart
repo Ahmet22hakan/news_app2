@@ -48,6 +48,40 @@ class Tab0 extends StatefulWidget {
 
 class _Tab0State extends State<Tab0> {
   @override
+  void initState() {
+    super.initState();
+    context.read<RecentBloc2>().getData().then((value) {
+      if (context.mounted) {
+        context.read<RecentBloc3>().getData().then((value) {
+          if (context.mounted) {
+            context.read<RecentBloc6>().getData().then((value) {
+              if (context.mounted) {
+                context.read<RecentBloc5>().getData().then((value) {
+                  if (context.mounted) {
+                    context.read<RecentBloc7>().getData().then((value) {
+                      if (context.mounted) {
+                        context.read<RecentBloc4>().getData().then((value) {
+                          if (context.mounted) {
+                            context.read<RecentBloc8>().getData().then((value) {
+                              if (context.mounted) {
+                                context.read<PopularBloc>().getData();
+                              }
+                            });
+                          }
+                        });
+                      }
+                    });
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return EasyRefresh(
       footer: MaterialFooter(),

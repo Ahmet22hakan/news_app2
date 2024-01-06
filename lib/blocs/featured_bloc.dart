@@ -15,7 +15,7 @@ class FeaturedBloc with ChangeNotifier {
   void getData() async {
     _data.clear();
     try {
-      var asd = await api.getLastArticles(10, 1);
+      var asd = await api.getLastArticles(5, 1);
       if (asd.isNotEmpty) {
         _hasData = true;
         print("\n\n\nBaşladı\n\n\n");
