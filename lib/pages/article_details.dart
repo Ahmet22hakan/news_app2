@@ -14,6 +14,14 @@ import 'package:news_app/utils/cached_image.dart';
 import 'package:news_app/widgets/html_body.dart';
 import 'package:provider/provider.dart';
 
+List<String> isimler = [
+  "Banu K.",
+  "Bahar A.",
+  "Seher Yılmaz A.",
+  "Güzide Ö.",
+  "Yelda ipek S.",
+  "Berkay Y.",
+];
 
 class ArticleDetails extends StatefulWidget {
   final Article? data;
@@ -28,9 +36,7 @@ class ArticleDetails extends StatefulWidget {
 class _ArticleDetailsState extends State<ArticleDetails> {
   double rightPaddingValue = 130;
 
-  handleBookmarkClick() {
-
-  }
+  handleBookmarkClick() {}
 
   @override
   void initState() {
@@ -134,6 +140,22 @@ class _ArticleDetailsState extends State<ArticleDetails> {
                                           article.readingTime!,
                                           style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 12),
                                         ),
+                                        Row(
+                                          children: [
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Icon(CupertinoIcons.person, size: 18, color: Colors.grey),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Text(
+                                              isimler[article.description.toString().length % 6],
+                                              style: TextStyle(
+                                                  color: Theme.of(context).secondaryHeaderColor, fontSize: 12),
+                                            ),
+                                          ],
+                                        ),
                                       ],
                                     ),
                                     SizedBox(
@@ -188,6 +210,24 @@ class _ArticleDetailsState extends State<ArticleDetails> {
                                 ),
                               ),
                               SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Icon(CupertinoIcons.person, size: 18, color: Colors.grey),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    isimler[article.description.toString().length % 6],
+                                    style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 12),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
                                 height: 20,
                               ),
                             ],
@@ -210,7 +250,7 @@ class _ArticleDetailsState extends State<ArticleDetails> {
 
               // -- Banner ads --
 
-             // context.watch<AdsBloc>().bannerAdEnabled == false ? Container() : BannerAdAdmob() //admob
+              // context.watch<AdsBloc>().bannerAdEnabled == false ? Container() : BannerAdAdmob() //admob
               //: BannerAdFb()    //fb
             ],
           ),

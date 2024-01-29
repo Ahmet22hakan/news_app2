@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:news_app/blocs/astro_aylik_bloc.dart';
@@ -6,6 +8,7 @@ import 'package:news_app/blocs/test_bloc.dart';
 import 'package:news_app/blocs/theme_bloc.dart';
 import 'package:news_app/models/custom_color.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({Key? key}) : super(key: key);
@@ -23,7 +26,8 @@ class DrawerMenu extends StatelessWidget {
       'Ekonomi, Finans',
       'Turizm, Seyahat',
       'İş Dünyası',
-      "Kültür & Sanat"
+      "Kültür & Sanat",
+      "Bize Ulaşın"
     ];
 
     final List<Widget> imageList = [
@@ -74,7 +78,7 @@ class DrawerMenu extends StatelessWidget {
               child: ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.only(bottom: 30),
-                itemCount: titles.length + 1,
+                itemCount: titles.length + 2,
                 shrinkWrap: true,
                 separatorBuilder: (ctx, idx) => Divider(
                   height: 0,
@@ -162,6 +166,10 @@ class DrawerMenu extends StatelessWidget {
                             .read<TabIndexBloc>()
                             .tabController!
                             .animateTo(8, duration: Duration(milliseconds: 500), curve: Curves.ease);
+                      } else if (index == 11) {
+                        launchUrl(Uri.parse("https://kurumsal.bulten360.com/iletisim/"));
+                      }else{
+                        
                       }
                     },
                   );
