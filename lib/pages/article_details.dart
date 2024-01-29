@@ -140,22 +140,6 @@ class _ArticleDetailsState extends State<ArticleDetails> {
                                           article.readingTime!,
                                           style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 12),
                                         ),
-                                        Row(
-                                          children: [
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Icon(CupertinoIcons.person, size: 18, color: Colors.grey),
-                                            SizedBox(
-                                              width: 5,
-                                            ),
-                                            Text(
-                                              isimler[article.description.toString().length % 6],
-                                              style: TextStyle(
-                                                  color: Theme.of(context).secondaryHeaderColor, fontSize: 12),
-                                            ),
-                                          ],
-                                        ),
                                       ],
                                     ),
                                     SizedBox(

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:news_app/blocs/astro_aylik_bloc.dart';
@@ -27,7 +25,8 @@ class DrawerMenu extends StatelessWidget {
       'Turizm, Seyahat',
       'İş Dünyası',
       "Kültür & Sanat",
-      "Bize Ulaşın"
+      "Bize Ulaşın",
+      "Gizlilik İlkesi",
     ];
 
     final List<Widget> imageList = [
@@ -41,6 +40,8 @@ class DrawerMenu extends StatelessWidget {
       Image.asset("assets/images/turizmIcon.png"),
       Image.asset("assets/images/isIcon.png"),
       Image.asset("assets/images/kulturIcon.png"),
+      Image.asset("assets/images/com.png"),
+      Image.asset("assets/images/policy.png"),
     ];
 
     return Drawer(
@@ -101,16 +102,41 @@ class DrawerMenu extends StatelessWidget {
                           }),
                     );
                   }
+                  if (index == 11) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 18,
+                            ),
+                            Text(
+                              "Kurumsal",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        )
+                      ],
+                    );
+                  }
                   return ListTile(
                     dense: true,
                     title: Text(
-                      titles[index - 1],
+                      index < 11 ? titles[index - 1] : titles[index - 2],
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16,
                       ),
                     ),
-                    leading: Container(height: 35, width: 35, child: imageList[index - 1]),
+                    leading: Container(
+                        height: 35, width: 35, child: index < 11 ? imageList[index - 1] : imageList[index - 2]),
                     onTap: () async {
                       Navigator.pop(context);
                       if (index == 1) {
@@ -166,11 +192,11 @@ class DrawerMenu extends StatelessWidget {
                             .read<TabIndexBloc>()
                             .tabController!
                             .animateTo(8, duration: Duration(milliseconds: 500), curve: Curves.ease);
-                      } else if (index == 11) {
+                      } else if (index == 12) {
                         launchUrl(Uri.parse("https://kurumsal.bulten360.com/iletisim/"));
-                      }else{
-                        
-                      }
+                      } else if (index == 13) {
+                        launchUrl(Uri.parse("http://kurumsal.bulten360.com/gizlilik-ilkesi/"));
+                      } else {}
                     },
                   );
                 },

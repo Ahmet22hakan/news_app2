@@ -244,17 +244,7 @@ class _CategoriesState extends State<Categories> with AutomaticKeepAliveClientMi
         automaticallyImplyLeading: false,
         title: Text('360 Mod'),
         elevation: 0,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Feather.rotate_cw,
-              size: 22,
-            ),
-            onPressed: () {
-             // context.read<CategoriesBloc>().onRefresh(mounted);
-            },
-          )
-        ],
+       
       ),
       body: Container(
         padding: EdgeInsets.only(top: 10),
